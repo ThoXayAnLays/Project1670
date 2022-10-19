@@ -21,6 +21,13 @@
 }
 else
 {
+    <div class="col">
+        <form asp-controller="Book" asp-action="Search" method="post">
+            <div class="form-group">
+                <input class="form-control" type="search" required name="keyword" placeholder="Search by book title" />
+            </div>
+        </form>
+    </div>
     <h1>Book List</h1>
     @if (User.Identity.IsAuthenticated && User.IsInRole("StoreOwner"))
     {

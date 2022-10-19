@@ -89,5 +89,12 @@ namespace Project1670.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public IActionResult Search(string keyword)
+        {
+            var cates = context.Categories.Where(b => b.Name.Contains(keyword)).ToList();
+            return View("Index", cates);
+        }
     }
 }

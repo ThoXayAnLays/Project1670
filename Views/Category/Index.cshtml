@@ -4,6 +4,14 @@
 }
 <h1>Category List</h1>
 
+<div class="col">
+    <form asp-controller="Category" asp-action="Search" method="post">
+        <div class="form-group">
+            <input class="form-control" type="search" required name="keyword" placeholder="Search by category name" />
+        </div>
+    </form>
+</div>
+
 <a class="btn btn-outline-warning mb-3" asp-controller="Category" asp-action="Add">Add New Category</a>
 
 

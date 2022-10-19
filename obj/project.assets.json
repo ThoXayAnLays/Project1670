@@ -9834,19 +9834,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\NNT.Koala\\.nuget\\packages\\": {}
+    "C:\\Users\\congi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\NNT.Koala\\OneDrive\\Tài liệu\\GitHub\\Project1670\\Project1670.csproj",
+      "projectUniqueName": "C:\\Users\\congi\\source\\repos\\Project1670\\Project1670.csproj",
       "projectName": "Project1670",
-      "projectPath": "C:\\Users\\NNT.Koala\\OneDrive\\Tài liệu\\GitHub\\Project1670\\Project1670.csproj",
-      "packagesPath": "C:\\Users\\NNT.Koala\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\NNT.Koala\\OneDrive\\Tài liệu\\GitHub\\Project1670\\obj\\",
+      "projectPath": "C:\\Users\\congi\\source\\repos\\Project1670\\Project1670.csproj",
+      "packagesPath": "C:\\Users\\congi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\congi\\source\\repos\\Project1670\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\NNT.Koala\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\congi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

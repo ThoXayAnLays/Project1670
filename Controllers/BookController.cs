@@ -110,5 +110,14 @@ namespace Project1670.Controllers
                 return RedirectToAction("Index");
             }
         }
+
+        [HttpPost]
+        public IActionResult Search(string keyword)
+        {
+            var categories = context.Categories.ToList();
+            ViewBag.Categories = categories;
+            var books = context.Books.Where(b => b.Title.Contains(keyword)).ToList();
+            return View("Index",books);
+        }
     }
 }
