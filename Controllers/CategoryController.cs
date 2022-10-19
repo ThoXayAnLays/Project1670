@@ -24,19 +24,17 @@ namespace Project1670.Controllers
             return View(categories);
         }
 
-
         public IActionResult Detail(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
-            var categories=context.Categories.ToList();
-            ViewBag.Categories=categories;
+            var categories = context.Categories.ToList();
+            ViewBag.Categories = categories;
             var category = context.Categories.Include(c => c.Books).FirstOrDefault(c => c.Id == id);
             return View(category);
         }
-
 
         [Authorize(Roles = "Admin")]
         [HttpGet]

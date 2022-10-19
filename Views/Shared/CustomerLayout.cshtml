@@ -27,12 +27,22 @@
                     <partial name="_LoginPartial" />
                     <ul class="navbar-collapse collapse">
                         @{
-                            if (User.Identity.IsAuthenticated && (User.IsInRole("Customer") || User.IsInRole("StoreOwner")))
+                            if (User.Identity.IsAuthenticated && User.IsInRole("Customer"))
                             {
                                 for (int i = 0; i < ViewBag.Categories.Count; i++)
                                 {
                                     <li class="nav navbar-nav ml-2 mr-2">
-                                        <a class="nav-item text-dark mt-3" asp-controller="Category" asp-action="Detail"
+                                        <a class="nav-item text-dark mt-3" asp-controller="Book" asp-action="BookByCateCust"
+                               asp-route-id="@ViewBag.Categories[i].Id">@ViewBag.Categories[i].Name</a>
+                                    </li>
+                                }
+                            }
+                            if (User.Identity.IsAuthenticated && User.IsInRole("StoreOwner"))
+                            {
+                                for (int i = 0; i < ViewBag.Categories.Count; i++)
+                                {
+                                    <li class="nav navbar-nav ml-2 mr-2">
+                                        <a class="nav-item text-dark mt-3" asp-controller="Book" asp-action="BookByCateSO"
                                asp-route-id="@ViewBag.Categories[i].Id">@ViewBag.Categories[i].Name</a>
                                     </li>
                                 }

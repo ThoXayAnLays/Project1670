@@ -41,7 +41,6 @@ namespace Project1670.Controllers
             return View(book);
         }
 
-
         [Authorize(Roles = "StoreOwner")]
         [HttpGet]
         public IActionResult Add()
@@ -136,6 +135,20 @@ namespace Project1670.Controllers
             var categories = context.Categories.ToList();
             ViewBag.Categories = categories;
             var books = context.Books.Where(b => b.Title.Contains(keyword)).ToList();
+            return View("SOS", books);
+        }
+        public IActionResult BookByCateCust(int? id)
+        {
+            var categories = context.Categories.ToList();
+            ViewBag.Categories = categories;
+            var books = context.Books.Where(b => b.CategoryId == id).ToList();
+            return View("Search", books);
+        }
+        public IActionResult BookByCateSO(int? id)
+        {
+            var categories = context.Categories.ToList();
+            ViewBag.Categories = categories;
+            var books = context.Books.Where(b => b.CategoryId == id).ToList();
             return View("SOS", books);
         }
     }
