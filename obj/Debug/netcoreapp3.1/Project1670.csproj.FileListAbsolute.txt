@@ -960,3 +960,4 @@ C:\Users\congi\source\repos\Project1670\obj\Debug\netcoreapp3.1\Razor\Areas\Iden
 C:\Users\congi\source\repos\Project1670\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Error.cshtml.g.cs
 C:\Users\congi\source\repos\Project1670\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\congi\source\repos\Project1670\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
+C:\Users\congi\source\repos\Project1670\obj\Debug\netcoreapp3.1\Razor\Views\Cart\Cart.cshtml.g.cs

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Project1670.Migrations
 {
-    public partial class web : Migration
+    public partial class ok : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -189,14 +189,37 @@ namespace Project1670.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Carts",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserEmail = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    OrderQuantity = table.Column<int>(type: "int", nullable: false),
+                    OrderPrice = table.Column<double>(type: "float", nullable: false),
+                    OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    BookId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Carts", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Carts_Books_BookId",
+                        column: x => x.BookId,
+                        principalTable: "Books",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "A", "52d79c7c-787d-4f6c-b184-e93e5d578e2b", "Admin", "Admin" },
-                    { "C", "8e20dd20-0f6c-4c2e-bfb8-afb8d03fa5ba", "Customer", "Customer" },
-                    { "B", "ad52fa83-c3f0-4adc-a1c1-fc2ca33c8ebe", "StoreOwner", "StoreOwner" }
+                    { "A", "c1b3dac2-2395-427c-8342-64bff0b68d05", "Admin", "Admin" },
+                    { "C", "56b55323-25d9-4876-b3d9-16c723f92d25", "Customer", "Customer" },
+                    { "B", "c016707e-b489-48c6-be1d-40e77e587f87", "StoreOwner", "StoreOwner" }
                 });
 
             migrationBuilder.InsertData(
@@ -204,9 +227,9 @@ namespace Project1670.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1", 0, "64d12d3d-d84e-49dc-b33c-6b1df01b385b", "admin@fpt.com", true, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAEKNgWr3drLhCZOD5DXomVjcU6UjMGQsV4Xai+yoNH0qi6hGHmTt2LELSTxQrWaYjWA==", null, false, "9df162c5-a746-4052-91dc-2111fdabd68b", false, "admin@fpt.com" },
-                    { "3", 0, "d4a86dc0-96a9-439d-bd71-0805d2e69b09", "customer@fpt.com", true, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAEPO1j3PQ7pGZeOg60KxYttqO8dED3vmFFzpYGkCCOb8LewaSlG2S/hGvricI6Qibpw==", null, false, "4da3dac2-32a9-4fe9-8563-34bebd37c5e8", false, "customer@fpt.com" },
-                    { "2", 0, "49581947-063e-433d-833d-e509b98aa24e", "storeowner@fpt.com", true, false, null, null, "storeowner@fpt.com", "AQAAAAEAACcQAAAAEN4Gi+9aSIE1VeqO9bB/JaictGlotqldN1AS6iw0PPSbrtlNHVD5gWSKWFgpY3MLCw==", null, false, "327c557f-342a-43b4-96a3-88fee352d9e9", false, "storeowner@fpt.com" }
+                    { "1", 0, "ee705ee5-49ee-4d96-985b-9b86628de0d7", "admin@fpt.com", true, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAEGr7ClHa3cVAie7K5EDSoYFPiDKogVGAPeWab/83B9ssphAbm3WckS/8hNVKufqvMA==", null, false, "037fe0f1-f675-4e2b-a851-aecdd1f34e22", false, "admin@fpt.com" },
+                    { "3", 0, "ab977043-befc-4d6f-83e5-fc3a15888487", "customer@fpt.com", true, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAEJpUVs6yPu0DFjKKSE3QG3cjCkzvZdVz/hp1SeHlK6jiWt7VtvZjxXNJSocjj/yZLA==", null, false, "7e19e186-5d44-4cd5-b8d0-3354deee1753", false, "customer@fpt.com" },
+                    { "2", 0, "8827ba1a-0fb5-41f4-b428-c475ad233e6c", "storeowner@fpt.com", true, false, null, null, "storeowner@fpt.com", "AQAAAAEAACcQAAAAEKAjTGcqnzy7ByKHd6K6LZZdZYPbr22ssrtsTSBVE8C7w5Gc5OJ6Ng2l2hQWAR2/iA==", null, false, "9e2b61d9-e6fe-4224-944e-3196b0f1b5f1", false, "storeowner@fpt.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -234,7 +257,7 @@ namespace Project1670.Migrations
                 columns: new[] { "Id", "CategoryId", "Description", "Image", "Price", "Title" },
                 values: new object[,]
                 {
-                    { 1, 1, "Dark Horse Books, 184 Pages", "https://m.media-amazon.com/images/I/41BLe0tuycL._SL350_.jpg", 20, "The Umbrella Academy, Vol. 1" },
+                    { 1, 1, "Dark Horse Books, 184 Pages", "https://m.media-amazon.com/images/I/61m7Jsvu1sL.jpg", 20, "The Umbrella Academy, Vol. 1" },
                     { 3, 1, "Dark Horse Books, 280 Pages", "https://img.thriftbooks.com/api/images/m/20f29c7cae6564e7459110e2cd248e1e0865d228.jpg", 35, "Frank Miller's Sin City Volume 1" },
                     { 2, 2, "A Song of Ice and Fire Series, 801 Pages", "https://img.thriftbooks.com/api/images/m/0c6017fb9fe27f6ded6709b6d208c3ab1652a05b.jpg", 100, "Game of Thrones" },
                     { 4, 2, "A Song of Ice and Fire Series, 784 Pages", "https://img.thriftbooks.com/api/images/i/m/8FD33A481ADBA129AFB0BB58608AD92DA8EF5699.jpg", 80, "A Clash of Kings" },
@@ -285,6 +308,11 @@ namespace Project1670.Migrations
                 name: "IX_Books_CategoryId",
                 table: "Books",
                 column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Carts_BookId",
+                table: "Carts",
+                column: "BookId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -305,13 +333,16 @@ namespace Project1670.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Books");
+                name: "Carts");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Books");
 
             migrationBuilder.DropTable(
                 name: "Categories");

@@ -1,5 +1,7 @@
 ﻿@model List<Book>
-
+@{
+    Layout = "CustomerLayout";
+}
 <div class="col">
     <form asp-controller="Book" asp-action="Search" method="post">
         <div class="form-group">
@@ -28,6 +30,16 @@
                 <div class="card-body">
                     <h4 class="text-primary">@book.Title</h4>
                 </div>
+            </div>
+            <div class="card-footer">
+                <form asp-controller="Cart" asp-action="Add">
+                    <input type="hidden" name="id" value="@book.Id" />
+                    <input class="form-control" type="number" name="quantity" required min="1" max="10">
+                    <div class="form-group mt-3">
+                        <input type="submit" class="btn btn-success" value="Add to cart"
+                           onclick="    return confirm('Are you sure to purchase this book ?');" />
+                    </div>
+                </form>
             </div>
         }
     </div>

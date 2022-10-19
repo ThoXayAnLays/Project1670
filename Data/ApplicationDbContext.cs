@@ -17,7 +17,7 @@ namespace Project1670.Data
 
         public DbSet<Book> Books { get; set; }
         public DbSet<Category> Categories { get; set; }
-
+        public DbSet<Cart> Carts { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -150,7 +150,7 @@ namespace Project1670.Data
                     Price = 20,
                     Description = "Dark Horse Books, 184 Pages",
                     CategoryId = 1,
-                    Image = "https://m.media-amazon.com/images/I/41BLe0tuycL._SL350_.jpg"
+                    Image = "https://m.media-amazon.com/images/I/61m7Jsvu1sL.jpg"
                 },
                 new Book
                 {

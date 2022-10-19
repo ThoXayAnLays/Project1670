@@ -16,15 +16,20 @@ namespace Project1670.Controllers
             this.context = context;
         }
 
-        [Route("/")]
+        [Authorize(Roles = "StoreOwner")]
         public IActionResult Index()
         {
             var categories = context.Categories.ToList();
             ViewBag.Categories = categories;
             return View(context.Books.ToList());
         }
+
+        [Route("/")]
+        [Authorize(Roles = "Customer")]
         public IActionResult List()
         {
+            var categories = context.Categories.ToList();
+            ViewBag.Categories = categories;
             return View(context.Books.ToList());
         }
 
@@ -117,7 +122,7 @@ namespace Project1670.Controllers
             var categories = context.Categories.ToList();
             ViewBag.Categories = categories;
             var books = context.Books.Where(b => b.Title.Contains(keyword)).ToList();
-            return View("Index",books);
+            return View("List",books);
         }
     }
 }

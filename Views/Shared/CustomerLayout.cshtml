@@ -30,6 +30,9 @@
                     <select class="list-group-item" asp-items="@(new SelectList(ViewBag.Categories, "Id", "Name"))">
                         <option>Category</option>
                     </select>
+                    <div class="nav nav-item">
+                        <a class="btn btn-primary" asp-controller="Cart" asp-action="Cart">Cart</a>
+                    </div>
 
                 </div>
             </div>
