@@ -31,6 +31,8 @@ namespace Project1670.Controllers
             {
                 return NotFound();
             }
+            var categories=context.Categories.ToList();
+            ViewBag.Categories=categories;
             var category = context.Categories.Include(c => c.Books).FirstOrDefault(c => c.Id == id);
             return View(category);
         }

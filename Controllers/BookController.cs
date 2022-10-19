@@ -23,9 +23,8 @@ namespace Project1670.Controllers
             ViewBag.Categories = categories;
             return View(context.Books.ToList());
         }
-
-        [Route("/")]
-        [Authorize(Roles = "Customer")]
+            
+        
         public IActionResult List()
         {
             var categories = context.Categories.ToList();
@@ -37,6 +36,8 @@ namespace Project1670.Controllers
         public IActionResult Detail(int id)
         {
             var book = context.Books.Include(b => b.Category).FirstOrDefault(b => b.Id == id);
+            var categories = context.Categories.ToList();
+            ViewBag.Categories = categories;
             return View(book);
         }
 
@@ -55,6 +56,8 @@ namespace Project1670.Controllers
         [HttpPost]
         public IActionResult Add(Book book)
         {
+            var categories = context.Categories.ToList();
+            ViewBag.Categories = categories;
             if (ModelState.IsValid)
             {
                 context.Books.Add(book);
@@ -84,6 +87,8 @@ namespace Project1670.Controllers
         [HttpPost]
         public IActionResult Edit(Book book)
         {
+            var categories = context.Categories.ToList();
+            ViewBag.Categories = categories;
             if (ModelState.IsValid)
             {
                 context.Books.Update(book);
@@ -122,7 +127,16 @@ namespace Project1670.Controllers
             var categories = context.Categories.ToList();
             ViewBag.Categories = categories;
             var books = context.Books.Where(b => b.Title.Contains(keyword)).ToList();
-            return View("List",books);
+            return View("Search",books);
+        }
+
+        [HttpPost]
+        public IActionResult SOS(string keyword)
+        {
+            var categories = context.Categories.ToList();
+            ViewBag.Categories = categories;
+            var books = context.Books.Where(b => b.Title.Contains(keyword)).ToList();
+            return View("SOS", books);
         }
     }
 }

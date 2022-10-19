@@ -16,15 +16,28 @@
             <th>Total Price</th>
             <th>Date</th>
             <th>Image</th>
-            @if (User.Identity.IsAuthenticated && User.IsInRole("StoreOwner"))
+            <th>Delete</th>
+          @*  @if (User.Identity.IsAuthenticated && User.IsInRole("StoreOwner"))
             {
                 <th colspan="2">Action</th>
-            }
+            }*@
         </tr>
         @foreach (var cart in Model)
         {
+            
             <tr>
-                <td>@(ViewBag.Books)</td>
+              
+                <td>
+                    @{
+                        for ( int i=0; i < ViewBag.Books.Count; i++ )
+                        {
+                           if(cart.BookId == ViewBag.Books[i].Id)
+                           {
+                                <text>@ViewBag.Books[i].Title</text>
+                           }
+                        }
+                    }
+                </td>
                 <td>@cart.OrderQuantity</td>
                 <td>@cart.OrderPrice</td>
                 <td>@cart.OrderDate</td>
@@ -32,6 +45,10 @@
                     <a asp-controller="Book" asp-action="Detail" asp-route-id="@cart.BookId">
                         <img src="@cart.Book.Image" width="100" height="100" />
                     </a>
+                </td>
+                <td>
+                    <a asp-controller="Cart" asp-action="Delete" class="btn btn-danger" asp-route-id="@cart.Id"
+                   onclick="return confirm('Are you sure to remove this book ?');">Remove</a>
                 </td>
             </tr>
         }

@@ -35,7 +35,7 @@ namespace Project1670.Controllers
             //gửi về thông báo order thành công
             TempData["Success"] = "Order book successfully !";
             //redirect về trang mobile store
-            return RedirectToAction("Index", "Book");
+            return RedirectToAction("List", "Book");
         }
         public IActionResult Cart()
         {
@@ -45,6 +45,21 @@ namespace Project1670.Controllers
             ViewBag.Books = books;
             var carts = context.Carts.ToList();
             return View(carts);
+        }
+        public IActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                var cart = context.Carts.Find(id);
+                context.Carts.Remove(cart);
+                context.SaveChanges();
+                TempData["Message"] = "Delete book successfully !";
+                return RedirectToAction("Cart",cart);
+            }
         }
     }
 }

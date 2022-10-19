@@ -1,6 +1,11 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
-    Layout = "CustomerLayout";
+    if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+    {
+        Layout = "_Layout";
+    }else{
+        Layout = "CustomerLayout";
+    }
 }
 
 <div class="text-center">

@@ -1,18 +1,19 @@
-﻿@model List<Category>
+﻿    @model List<Category>
 @{
     Layout = "_Layout";
 }
 <h1>Category List</h1>
 
-<div class="col">
+<div class="input-group">
     <form asp-controller="Category" asp-action="Search" method="post">
-        <div class="form-group">
-            <input class="form-control" type="search" required name="keyword" placeholder="Search by category name" />
+        <div class="form-outline">
+            <input type="search" required name="keyword" placeholder="Search by category name" />
+            <input class="btn btn-primary mb-2" type="submit" value="Search" />
         </div>
     </form>
 </div>
 
-<a class="btn btn-outline-warning mb-3" asp-controller="Category" asp-action="Add">Add New Category</a>
+<a class="btn btn-outline-warning mb-3 mt-2" asp-controller="Category" asp-action="Add">Add New Category</a>
 
 
 <table class="table table-bordered">
