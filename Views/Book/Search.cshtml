@@ -28,14 +28,15 @@
                 </div>
                 <div class="card-body">
                     <h4 class="text-primary">@book.Title</h4>
+                    <h5 class="text-danger">@book.Quantity</h5>
                 </div>
                 <div>
-                    <form asp-controller="Cart" asp-action="Add">
+                    <form asp-controller="Order" asp-action="Add">
                         <div class="mb-3">
                             <input type="hidden" name="id" value="@book.Id" />
-                            <input type="number" name="quantity" required min="1" max="10">
-                            <input type="submit" class="btn btn-success" value="Add to cart"
-                               onclick="    return confirm('Are you sure to purchase this book ?');" />
+                            <input type="number" name="quantity" required min="1" max="@book.Quantity">
+                            <input type="submit" class="btn btn-success" value="Order"
+                               onclick="    return confirm('Are you sure to order this book ?');" />
                         </div>
                     </form>
                 </div>

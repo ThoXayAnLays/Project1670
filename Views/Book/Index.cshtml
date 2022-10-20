@@ -34,6 +34,7 @@ else
     {
         <div>
             <a class="btn btn-outline-warning mb-3" asp-controller="Book" asp-action="Add">Add New Book</a>
+            <a class="btn btn-outline-primary mb-3" asp-controller="Order" asp-action="CustOrder">Customer Orders</a>
         </div>
     }
     <div class="container text-center">
@@ -42,6 +43,7 @@ else
                 <th>Book Id</th>
                 <th>Book Title</th>
                 <th>Book Price</th>
+                <th>Book Quantity</th>
                 <th>Book Description</th>
                 <th>Book Image</th>
                 @if (User.Identity.IsAuthenticated && User.IsInRole("StoreOwner"))
@@ -55,6 +57,7 @@ else
                     <td>@book.Id</td>
                     <td>@book.Title</td>
                     <td>@book.Price</td>
+                    <td>@book.Quantity</td>
                     <td>@book.Description</td>
                     <td>
                         <a asp-controller="Book" asp-action="Detail" asp-route-id="@book.Id">

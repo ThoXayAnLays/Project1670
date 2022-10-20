@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Project1670.Migrations
 {
-    public partial class demo : Migration
+    public partial class ok : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -176,6 +176,7 @@ namespace Project1670.Migrations
                     Price = table.Column<int>(type: "int", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: false),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Quantity = table.Column<int>(type: "int", nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -190,7 +191,7 @@ namespace Project1670.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Carts",
+                name: "Orders",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -203,9 +204,9 @@ namespace Project1670.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Carts", x => x.Id);
+                    table.PrimaryKey("PK_Orders", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Carts_Books_BookId",
+                        name: "FK_Orders_Books_BookId",
                         column: x => x.BookId,
                         principalTable: "Books",
                         principalColumn: "Id",
@@ -217,9 +218,9 @@ namespace Project1670.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "A", "fc216729-8bf5-40be-b38a-b7d390e83b75", "Admin", "Admin" },
-                    { "C", "3120d200-ff5a-4e9c-839b-8019c5d21888", "Customer", "Customer" },
-                    { "B", "d1e1fe52-5b1f-4ac6-afc7-c3f83a3b4cf3", "StoreOwner", "StoreOwner" }
+                    { "A", "b7e6de51-fb56-4ffe-b5f4-1d7c52e0213c", "Admin", "Admin" },
+                    { "C", "46f04499-9f2f-46ca-8e12-1c5a30be11a2", "Customer", "Customer" },
+                    { "B", "65b23223-e836-4888-b1ac-19fe71628f61", "StoreOwner", "StoreOwner" }
                 });
 
             migrationBuilder.InsertData(
@@ -227,9 +228,9 @@ namespace Project1670.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1", 0, "37a6d7fb-4869-49ab-b99a-7546e912d403", "admin@fpt.com", true, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAEPfdeptJail6AZkfqcoNIoAA2Xop4cpsHfD8erkL/7C+kPkv+vW2S4lbCd2g3ODcCQ==", null, false, "48344dfc-16d1-4e98-815f-90c602b5cd1c", false, "admin@fpt.com" },
-                    { "3", 0, "3881b337-4072-4c5c-8aa5-783a667ed098", "customer@fpt.com", true, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAEP0+CTMOF71lAwg4JJlURaTN+JKAytNKVwFTl9X7fN4QGp748VuEWXHzMHcMBzugGg==", null, false, "7908dd3d-332c-4424-b450-6f833aa9f29b", false, "customer@fpt.com" },
-                    { "2", 0, "2cad7bce-5a91-4fcb-b0e6-5d9a03c0e8fd", "storeowner@fpt.com", true, false, null, null, "storeowner@fpt.com", "AQAAAAEAACcQAAAAEKs4j0SDdewY2LIDwDbMv5hbEqVOmcvgsMi3O+Mwj+7xYZHo/3HS51Lws6WXjaU+Hw==", null, false, "6de723fb-2fd5-43c0-add4-4e6e12f66216", false, "storeowner@fpt.com" }
+                    { "1", 0, "988b619b-2789-420b-a1b6-8f4249f0f510", "admin@fpt.com", true, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAEMchlv9FW1RJXjPOgp7qt4L0YyS1bE/5vvrIO1sTQrdQ+Nn5g354H8cxdzerwICeew==", null, false, "783141a1-6139-4510-a0e4-42da0c799d73", false, "admin@fpt.com" },
+                    { "3", 0, "862fa849-56d2-4313-a445-09daea369fab", "customer@fpt.com", true, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAEDmiHRyA9TvNokjZycyYLCgkcS0mDEVz8T2w9/3iVDpvOS3KwNzGcAMb5qvbY7Ys2Q==", null, false, "11918c03-ca75-40b9-8309-f9f89e6c9328", false, "customer@fpt.com" },
+                    { "2", 0, "7437a354-bd01-48cf-81b7-ce870a5cc5c6", "storeowner@fpt.com", true, false, null, null, "storeowner@fpt.com", "AQAAAAEAACcQAAAAEHxww+LpvXR3+QBCpVF/7GkJSAZwVtpLvPfrWaUySdwM5onctbIYxemqLHtv3E89XQ==", null, false, "3c563cd4-dd1c-4fa6-9720-39211ac702f3", false, "storeowner@fpt.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -254,15 +255,15 @@ namespace Project1670.Migrations
 
             migrationBuilder.InsertData(
                 table: "Books",
-                columns: new[] { "Id", "CategoryId", "Description", "Image", "Price", "Title" },
+                columns: new[] { "Id", "CategoryId", "Description", "Image", "Price", "Quantity", "Title" },
                 values: new object[,]
                 {
-                    { 1, 1, "Dark Horse Books, 184 Pages", "https://m.media-amazon.com/images/I/61m7Jsvu1sL.jpg", 20, "The Umbrella Academy, Vol. 1" },
-                    { 3, 1, "Dark Horse Books, 280 Pages", "https://img.thriftbooks.com/api/images/m/20f29c7cae6564e7459110e2cd248e1e0865d228.jpg", 35, "Frank Miller's Sin City Volume 1" },
-                    { 2, 2, "A Song of Ice and Fire Series, 801 Pages", "https://img.thriftbooks.com/api/images/m/0c6017fb9fe27f6ded6709b6d208c3ab1652a05b.jpg", 100, "Game of Thrones" },
-                    { 4, 2, "A Song of Ice and Fire Series, 784 Pages", "https://img.thriftbooks.com/api/images/i/m/8FD33A481ADBA129AFB0BB58608AD92DA8EF5699.jpg", 80, "A Clash of Kings" },
-                    { 5, 3, "The Strain Trilogy, 560 Pages", "https://img.thriftbooks.com/api/images/m/7c7380abc6e305301e3245b8452f2b6cb1fd2b11.jpg", 76, "The Night Eternal" },
-                    { 6, 3, "The Strain Trilogy Series, 448 Pages", "https://img.thriftbooks.com/api/images/m/b1997effbab92350fe8ac0ff5a8979855c399440.jpg", 56, "The Fall" }
+                    { 1, 1, "Dark Horse Books, 184 Pages", "https://m.media-amazon.com/images/I/61m7Jsvu1sL.jpg", 20, 30, "The Umbrella Academy, Vol. 1" },
+                    { 3, 1, "Dark Horse Books, 280 Pages", "https://img.thriftbooks.com/api/images/m/20f29c7cae6564e7459110e2cd248e1e0865d228.jpg", 35, 30, "Frank Miller's Sin City Volume 1" },
+                    { 2, 2, "A Song of Ice and Fire Series, 801 Pages", "https://img.thriftbooks.com/api/images/m/0c6017fb9fe27f6ded6709b6d208c3ab1652a05b.jpg", 100, 30, "Game of Thrones" },
+                    { 4, 2, "A Song of Ice and Fire Series, 784 Pages", "https://img.thriftbooks.com/api/images/i/m/8FD33A481ADBA129AFB0BB58608AD92DA8EF5699.jpg", 80, 30, "A Clash of Kings" },
+                    { 5, 3, "The Strain Trilogy, 560 Pages", "https://img.thriftbooks.com/api/images/m/7c7380abc6e305301e3245b8452f2b6cb1fd2b11.jpg", 76, 30, "The Night Eternal" },
+                    { 6, 3, "The Strain Trilogy Series, 448 Pages", "https://img.thriftbooks.com/api/images/m/b1997effbab92350fe8ac0ff5a8979855c399440.jpg", 56, 30, "The Fall" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -310,8 +311,8 @@ namespace Project1670.Migrations
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Carts_BookId",
-                table: "Carts",
+                name: "IX_Orders_BookId",
+                table: "Orders",
                 column: "BookId");
         }
 
@@ -333,7 +334,7 @@ namespace Project1670.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Carts");
+                name: "Orders");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

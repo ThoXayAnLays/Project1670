@@ -49,21 +49,21 @@ namespace Project1670.Migrations
                         new
                         {
                             Id = "A",
-                            ConcurrencyStamp = "fc216729-8bf5-40be-b38a-b7d390e83b75",
+                            ConcurrencyStamp = "b7e6de51-fb56-4ffe-b5f4-1d7c52e0213c",
                             Name = "Admin",
                             NormalizedName = "Admin"
                         },
                         new
                         {
                             Id = "C",
-                            ConcurrencyStamp = "3120d200-ff5a-4e9c-839b-8019c5d21888",
+                            ConcurrencyStamp = "46f04499-9f2f-46ca-8e12-1c5a30be11a2",
                             Name = "Customer",
                             NormalizedName = "Customer"
                         },
                         new
                         {
                             Id = "B",
-                            ConcurrencyStamp = "d1e1fe52-5b1f-4ac6-afc7-c3f83a3b4cf3",
+                            ConcurrencyStamp = "65b23223-e836-4888-b1ac-19fe71628f61",
                             Name = "StoreOwner",
                             NormalizedName = "StoreOwner"
                         });
@@ -162,14 +162,14 @@ namespace Project1670.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "37a6d7fb-4869-49ab-b99a-7546e912d403",
+                            ConcurrencyStamp = "988b619b-2789-420b-a1b6-8f4249f0f510",
                             Email = "admin@fpt.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "admin@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPfdeptJail6AZkfqcoNIoAA2Xop4cpsHfD8erkL/7C+kPkv+vW2S4lbCd2g3ODcCQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMchlv9FW1RJXjPOgp7qt4L0YyS1bE/5vvrIO1sTQrdQ+Nn5g354H8cxdzerwICeew==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "48344dfc-16d1-4e98-815f-90c602b5cd1c",
+                            SecurityStamp = "783141a1-6139-4510-a0e4-42da0c799d73",
                             TwoFactorEnabled = false,
                             UserName = "admin@fpt.com"
                         },
@@ -177,14 +177,14 @@ namespace Project1670.Migrations
                         {
                             Id = "3",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3881b337-4072-4c5c-8aa5-783a667ed098",
+                            ConcurrencyStamp = "862fa849-56d2-4313-a445-09daea369fab",
                             Email = "customer@fpt.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "customer@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEP0+CTMOF71lAwg4JJlURaTN+JKAytNKVwFTl9X7fN4QGp748VuEWXHzMHcMBzugGg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDmiHRyA9TvNokjZycyYLCgkcS0mDEVz8T2w9/3iVDpvOS3KwNzGcAMb5qvbY7Ys2Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7908dd3d-332c-4424-b450-6f833aa9f29b",
+                            SecurityStamp = "11918c03-ca75-40b9-8309-f9f89e6c9328",
                             TwoFactorEnabled = false,
                             UserName = "customer@fpt.com"
                         },
@@ -192,14 +192,14 @@ namespace Project1670.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2cad7bce-5a91-4fcb-b0e6-5d9a03c0e8fd",
+                            ConcurrencyStamp = "7437a354-bd01-48cf-81b7-ce870a5cc5c6",
                             Email = "storeowner@fpt.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "storeowner@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKs4j0SDdewY2LIDwDbMv5hbEqVOmcvgsMi3O+Mwj+7xYZHo/3HS51Lws6WXjaU+Hw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHxww+LpvXR3+QBCpVF/7GkJSAZwVtpLvPfrWaUySdwM5onctbIYxemqLHtv3E89XQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6de723fb-2fd5-43c0-add4-4e6e12f66216",
+                            SecurityStamp = "3c563cd4-dd1c-4fa6-9720-39211ac702f3",
                             TwoFactorEnabled = false,
                             UserName = "storeowner@fpt.com"
                         });
@@ -328,6 +328,9 @@ namespace Project1670.Migrations
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -347,6 +350,7 @@ namespace Project1670.Migrations
                             Description = "Dark Horse Books, 184 Pages",
                             Image = "https://m.media-amazon.com/images/I/61m7Jsvu1sL.jpg",
                             Price = 20,
+                            Quantity = 30,
                             Title = "The Umbrella Academy, Vol. 1"
                         },
                         new
@@ -356,6 +360,7 @@ namespace Project1670.Migrations
                             Description = "Dark Horse Books, 280 Pages",
                             Image = "https://img.thriftbooks.com/api/images/m/20f29c7cae6564e7459110e2cd248e1e0865d228.jpg",
                             Price = 35,
+                            Quantity = 30,
                             Title = "Frank Miller's Sin City Volume 1"
                         },
                         new
@@ -365,6 +370,7 @@ namespace Project1670.Migrations
                             Description = "A Song of Ice and Fire Series, 801 Pages",
                             Image = "https://img.thriftbooks.com/api/images/m/0c6017fb9fe27f6ded6709b6d208c3ab1652a05b.jpg",
                             Price = 100,
+                            Quantity = 30,
                             Title = "Game of Thrones"
                         },
                         new
@@ -374,6 +380,7 @@ namespace Project1670.Migrations
                             Description = "A Song of Ice and Fire Series, 784 Pages",
                             Image = "https://img.thriftbooks.com/api/images/i/m/8FD33A481ADBA129AFB0BB58608AD92DA8EF5699.jpg",
                             Price = 80,
+                            Quantity = 30,
                             Title = "A Clash of Kings"
                         },
                         new
@@ -383,6 +390,7 @@ namespace Project1670.Migrations
                             Description = "The Strain Trilogy, 560 Pages",
                             Image = "https://img.thriftbooks.com/api/images/m/7c7380abc6e305301e3245b8452f2b6cb1fd2b11.jpg",
                             Price = 76,
+                            Quantity = 30,
                             Title = "The Night Eternal"
                         },
                         new
@@ -392,37 +400,9 @@ namespace Project1670.Migrations
                             Description = "The Strain Trilogy Series, 448 Pages",
                             Image = "https://img.thriftbooks.com/api/images/m/b1997effbab92350fe8ac0ff5a8979855c399440.jpg",
                             Price = 56,
+                            Quantity = 30,
                             Title = "The Fall"
                         });
-                });
-
-            modelBuilder.Entity("Project1670.Models.Cart", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("BookId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("OrderDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<double>("OrderPrice")
-                        .HasColumnType("float");
-
-                    b.Property<int>("OrderQuantity")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserEmail")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BookId");
-
-                    b.ToTable("Carts");
                 });
 
             modelBuilder.Entity("Project1670.Models.Category", b =>
@@ -465,6 +445,35 @@ namespace Project1670.Migrations
                             Description = "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
                             Name = "Horror"
                         });
+                });
+
+            modelBuilder.Entity("Project1670.Models.Order", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BookId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("OrderDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double>("OrderPrice")
+                        .HasColumnType("float");
+
+                    b.Property<int>("OrderQuantity")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserEmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookId");
+
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -529,15 +538,20 @@ namespace Project1670.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("Project1670.Models.Cart", b =>
+            modelBuilder.Entity("Project1670.Models.Order", b =>
                 {
                     b.HasOne("Project1670.Models.Book", "Book")
-                        .WithMany()
+                        .WithMany("Orders")
                         .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Book");
+                });
+
+            modelBuilder.Entity("Project1670.Models.Book", b =>
+                {
+                    b.Navigation("Orders");
                 });
 
             modelBuilder.Entity("Project1670.Models.Category", b =>

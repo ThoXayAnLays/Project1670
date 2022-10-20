@@ -4,7 +4,7 @@ using System;
 
 namespace Project1670.Models
 {
-    public class Cart
+    public class Order
     {
         public int Id { get; set; }     
         public string UserEmail { get; set; }

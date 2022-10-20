@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Project1670.Models
 {
@@ -27,9 +28,14 @@ namespace Project1670.Models
         [Required(ErrorMessage = "This field can not be blank!")]
         public string Image { get; set; }
 
+        [Required]
+        [Range(1,100)]
+        public int Quantity { get; set; }
 
         [Required]
         public int CategoryId { get; set; }
         public Category Category { get; set; }
+
+        public ICollection<Order> Orders { get; set; }
     }
 }

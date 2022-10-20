@@ -17,7 +17,7 @@ namespace Project1670.Data
 
         public DbSet<Book> Books { get; set; }
         public DbSet<Category> Categories { get; set; }
-        public DbSet<Cart> Carts { get; set; }
+        public DbSet<Order> Orders { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -149,6 +149,7 @@ namespace Project1670.Data
                     Title = "The Umbrella Academy, Vol. 1",
                     Price = 20,
                     Description = "Dark Horse Books, 184 Pages",
+                    Quantity =30,
                     CategoryId = 1,
                     Image = "https://m.media-amazon.com/images/I/61m7Jsvu1sL.jpg"
                 },
@@ -158,6 +159,7 @@ namespace Project1670.Data
                     Title = "Frank Miller's Sin City Volume 1",
                     Price = 35,
                     Description = "Dark Horse Books, 280 Pages",
+                    Quantity = 30,
                     CategoryId = 1,
                     Image = "https://img.thriftbooks.com/api/images/m/20f29c7cae6564e7459110e2cd248e1e0865d228.jpg"
                 },
@@ -167,6 +169,7 @@ namespace Project1670.Data
                     Title = "Game of Thrones",
                     Price = 100,
                     Description = "A Song of Ice and Fire Series, 801 Pages",
+                    Quantity = 30,
                     CategoryId = 2,
                     Image = "https://img.thriftbooks.com/api/images/m/0c6017fb9fe27f6ded6709b6d208c3ab1652a05b.jpg"
                 },
@@ -176,6 +179,7 @@ namespace Project1670.Data
                     Title = "A Clash of Kings",
                     Price = 80,
                     Description = "A Song of Ice and Fire Series, 784 Pages",
+                    Quantity = 30,
                     CategoryId = 2,
                     Image = "https://img.thriftbooks.com/api/images/i/m/8FD33A481ADBA129AFB0BB58608AD92DA8EF5699.jpg"
                 },
@@ -185,6 +189,7 @@ namespace Project1670.Data
                     Title = "The Night Eternal",
                     Price = 76,
                     Description = "The Strain Trilogy, 560 Pages",
+                    Quantity = 30,
                     CategoryId = 3,
                     Image = "https://img.thriftbooks.com/api/images/m/7c7380abc6e305301e3245b8452f2b6cb1fd2b11.jpg"
                 },
@@ -194,6 +199,7 @@ namespace Project1670.Data
                     Title = "The Fall",
                     Price = 56,
                     Description = "The Strain Trilogy Series, 448 Pages",
+                    Quantity = 30,
                     CategoryId = 3,
                     Image = "https://img.thriftbooks.com/api/images/m/b1997effbab92350fe8ac0ff5a8979855c399440.jpg"
                 }

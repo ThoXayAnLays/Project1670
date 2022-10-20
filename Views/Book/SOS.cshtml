@@ -36,6 +36,7 @@ else
                 <th>Book Id</th>
                 <th>Book Title</th>
                 <th>Book Price</th>
+                <th>Book Quantiy</th>
                 <th>Book Description</th>
                 <th>Book Image</th>
                 @if (User.Identity.IsAuthenticated && User.IsInRole("StoreOwner"))
@@ -49,6 +50,7 @@ else
                     <td>@book.Id</td>
                     <td>@book.Title</td>
                     <td>@book.Price</td>
+                    <td>@book.Quantity</td>
                     <td>@book.Description</td>
                     <td>
                         <a asp-controller="Book" asp-action="Detail" asp-route-id="@book.Id">
