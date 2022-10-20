@@ -18,6 +18,11 @@
     <h5 class="alert alert-info">@TempData["Message"]</h5>
 }
 
+@if (TempData["Message"] == null && Model.Count == 0)
+{
+    <h4 class="text text-danger text-center"> No category found !</h4>
+}
+
 <a class="btn btn-outline-warning mb-3 mt-2" asp-controller="Category" asp-action="Add">Add New Category</a>
 
 

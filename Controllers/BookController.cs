@@ -126,6 +126,10 @@ namespace Project1670.Controllers
             var categories = context.Categories.ToList();
             ViewBag.Categories = categories;
             var books = context.Books.Where(b => b.Title.Contains(keyword)).ToList();
+            if (books.Count == 0)
+            {
+                TempData["Message"] = "No book found";
+            }
             return View("Search",books);
         }
 
@@ -135,6 +139,10 @@ namespace Project1670.Controllers
             var categories = context.Categories.ToList();
             ViewBag.Categories = categories;
             var books = context.Books.Where(b => b.Title.Contains(keyword)).ToList();
+            if (books.Count == 0)
+            {
+                TempData["Message"] = "No book found";
+            }
             return View("SOS", books);
         }
         public IActionResult BookByCateCust(int? id)

@@ -14,9 +14,9 @@
     <h5 class="alert alert-info">@TempData["Message"]</h5>
 }
 
-@if (Model.Count == 0)
+@if (TempData["Message"] == null && Model.Count == 0)
 {
-    <h2 class="alert alert-danger">No book in DB. Add book first !</h2>
+    <h4 class="text text-danger text-center"> No book found !</h4>
     <a class="btn btn-success " asp-controller="Book" asp-action="Add">Add</a>
 }
 else

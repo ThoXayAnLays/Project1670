@@ -5,6 +5,7 @@ using Project1670.Data;
 using Project1670.Models;
 using System.Data;
 using System.Linq;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace Project1670.Controllers
 {
@@ -94,6 +95,10 @@ namespace Project1670.Controllers
         public IActionResult Search(string keyword)
         {
             var cates = context.Categories.Where(b => b.Name.Contains(keyword)).ToList();
+            if (cates.Count == 0)
+            {
+                TempData["Message"] = "No category found";
+            }
             return View("Index", cates);
         }
     }
