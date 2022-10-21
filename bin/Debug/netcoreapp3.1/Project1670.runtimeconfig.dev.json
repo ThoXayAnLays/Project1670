@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\NNT.Koala\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\NNT.Koala\\.nuget\\packages"
+      "C:\\Users\\congi\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\congi\\.nuget\\packages"
     ]
   }
 }

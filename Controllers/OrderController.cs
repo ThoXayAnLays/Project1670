@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Project1670.Data;
 using Project1670.Models;
 using System;
@@ -72,6 +73,9 @@ namespace Project1670.Controllers
             {
                 var order = context.Orders.Find(id);
                 context.Orders.Remove(order);
+                var book = context.Books.Find(order.BookId);
+                book.Quantity += order.OrderQuantity;
+                context.Books.Update(book);
                 context.SaveChanges();
                 TempData["Message"] = "Delete book successfully !";
                 return RedirectToAction("Order", order);
