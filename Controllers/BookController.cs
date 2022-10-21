@@ -159,5 +159,6 @@ namespace Project1670.Controllers
             var books = context.Books.Where(b => b.CategoryId == id).ToList();
             return View("SOS", books);
         }
+
     }
 }
