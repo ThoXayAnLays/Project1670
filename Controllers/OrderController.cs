@@ -74,7 +74,7 @@ namespace Project1670.Controllers
                 context.Orders.Remove(order);
                 context.SaveChanges();
                 TempData["Message"] = "Delete book successfully !";
-                return RedirectToAction("Cart", order);
+                return RedirectToAction("Order", order);
             }
         }
     }

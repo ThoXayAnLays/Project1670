@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\Views",
+    "\\Views\\Book",
     "\\Views\\Shared"
   ],
-  "SelectedNode": "\\Models",
+  "SelectedNode": "\\Views\\Book\\Index.cshtml",
   "PreviewInSolutionExplorer": false
 }

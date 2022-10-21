@@ -160,5 +160,18 @@ namespace Project1670.Controllers
             return View("SOS", books);
         }
 
+        public IActionResult SortNameAsc()
+        {
+            var categories = context.Categories.ToList();
+            ViewBag.Categories = categories;
+            return View("List", context.Books.OrderBy(s => s.Title).ToList());
+        }
+
+        public IActionResult SortNameDesc()
+        {
+            var categories = context.Categories.ToList();
+            ViewBag.Categories = categories;
+            return View("List", context.Books.OrderByDescending(s => s.Title).ToList());
+        }
     }
 }
