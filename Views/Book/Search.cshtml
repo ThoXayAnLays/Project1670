@@ -28,7 +28,15 @@
                 </div>
                 <div class="card-body">
                     <h4 class="text-primary">@book.Title</h4>
-                    <h5 class="text-danger">@book.Quantity</h5>
+                    <h5 class="text-info">Price: $@book.Price</h5>
+                    @if (book.Quantity < 1)
+                    {
+                        <h5 class="text-danger">OUT OF STOCK!</h5>
+                    }
+                    else
+                    {
+                        <h5 class="text-danger">Quantity: @book.Quantity</h5>
+                    }
                 </div>
                 <div>
                     <form asp-controller="Order" asp-action="Add">
