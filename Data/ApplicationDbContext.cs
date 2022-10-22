@@ -125,18 +125,21 @@ namespace Project1670.Data
                 Id = 1,
                 Name = "Comic",
                 Description = "The stories in comic books and graphic novels are presented to the reader through engaging, sequential narrative art (illustrations and typography) that's either presented in a specific design or the traditional panel layout you find in comics.",
+                Image = "https://m.media-amazon.com/images/I/61m7Jsvu1sL.jpg"
             };
             var scifi = new Category
             {
                 Id = 2,
                 Name = "ScienceFiction",
                 Description = "Though they're often thought of in the same vein as fantasy, what distinguishes science fiction stories is that they lean heavily on themes of technology and future science. You'll find apocalyptic and dystopian novels in the sci-fi genre as well.",
+                Image = "https://m.media-amazon.com/images/I/61m7Jsvu1sL.jpg"
             };
             var horror = new Category
             {
                 Id = 3,
                 Name = "Horror",
                 Description = "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
+                Image = "https://m.media-amazon.com/images/I/61m7Jsvu1sL.jpg"
             };
             builder.Entity<Category>().HasData(comic, scifi, horror);
         }

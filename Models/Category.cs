@@ -21,7 +21,8 @@ namespace Project1670.Models
         [MaxLength(500, ErrorMessage = "Max Category Description Length is 500 characters")]
         public string Description { get; set; }
 
-
+        [Required(ErrorMessage = "This field can not be blank!")]
+        public string Image { get; set; }
         public ICollection<Book> Books { get; set; }
     }
 }

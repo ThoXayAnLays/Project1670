@@ -53,7 +53,8 @@ namespace Project1670.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false)
+                    Description = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -218,9 +219,9 @@ namespace Project1670.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "A", "d977ee60-8f13-4365-acac-e4860e4e9bdd", "Admin", "Admin" },
-                    { "C", "84fa6c57-b42a-4b01-8843-63f589bf2369", "Customer", "Customer" },
-                    { "B", "01510bf8-0b10-46e0-986c-e589b77451ef", "StoreOwner", "StoreOwner" }
+                    { "A", "4f752c4b-3933-4689-812c-900f58ede0cb", "Admin", "Admin" },
+                    { "C", "0565b90e-fb52-4b9d-85b9-7d08de4051ce", "Customer", "Customer" },
+                    { "B", "77d64f0d-0036-4613-a267-c490444eb932", "StoreOwner", "StoreOwner" }
                 });
 
             migrationBuilder.InsertData(
@@ -228,19 +229,19 @@ namespace Project1670.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1", 0, "22fed0c6-558d-441a-9fdc-7f80325c6f2c", "admin@fpt.com", true, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAEO+vmYTF88yrU59Tb834PVGxLstz11aT4sCV6Kbb0Y5dVYNxhub5fCfdJD6Q7/rCEQ==", null, false, "d35c1b68-c66a-400b-8c23-864b13bceddb", false, "admin@fpt.com" },
-                    { "3", 0, "3ca3d006-7b30-4280-9bf8-cd9a4a6a6031", "customer@fpt.com", true, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAEK8OJmnCiGprcFsKSP/3P3glj1wDV4mPlSoC2XX3oj1S9BgD9XXnyXEAUT2h1ofyVg==", null, false, "4a8e1108-1c3b-43bf-9da2-018d675b41b2", false, "customer@fpt.com" },
-                    { "2", 0, "119ddf7c-28c6-46e1-af5a-87ad35784c82", "storeowner@fpt.com", true, false, null, null, "storeowner@fpt.com", "AQAAAAEAACcQAAAAEBpbx1NCCU05zqrbr8MFIw9L+uch5qB36zPAMqCO3/rKMR7+ildvFQ0nvrka7x537Q==", null, false, "01e65587-3185-4497-8837-9a8ef19733cd", false, "storeowner@fpt.com" }
+                    { "1", 0, "b0e91918-b5d2-4b00-8064-708510d0b62f", "admin@fpt.com", true, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAEKOw5jo4lsqUHKyV6uSNz6TQipa1b2qZ/kf3wmOTqXSgqlBbqQZC2t4+7kpUuS+PfQ==", null, false, "a211b6ed-55db-4df2-8298-1e9d9843deb4", false, "admin@fpt.com" },
+                    { "3", 0, "eb2549a1-43ec-46c4-86c1-136a12e39038", "customer@fpt.com", true, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAELa06Pvjno74RI/ZGkxkEeoCwn6yFGNVD3WW/lXyzfXcDzXb3BN5pp8O+PPZd7NG+Q==", null, false, "58bf6eac-7296-42da-81ff-2bbfc9f42bd3", false, "customer@fpt.com" },
+                    { "2", 0, "2565f2a9-b95f-49b8-8428-c6b0f0b39e6d", "storeowner@fpt.com", true, false, null, null, "storeowner@fpt.com", "AQAAAAEAACcQAAAAEJ9QPUU6QXAH/Wtwr+xVfELDHV8sZmLoA29TDG4KZO72hsW366Rr7KEuiY6RmYYO6Q==", null, false, "738f3e62-0fa8-409c-b45e-5c20f078e286", false, "storeowner@fpt.com" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Categories",
-                columns: new[] { "Id", "Description", "Name" },
+                columns: new[] { "Id", "Description", "Image", "Name" },
                 values: new object[,]
                 {
-                    { 1, "The stories in comic books and graphic novels are presented to the reader through engaging, sequential narrative art (illustrations and typography) that's either presented in a specific design or the traditional panel layout you find in comics.", "Comic" },
-                    { 2, "Though they're often thought of in the same vein as fantasy, what distinguishes science fiction stories is that they lean heavily on themes of technology and future science. You'll find apocalyptic and dystopian novels in the sci-fi genre as well.", "ScienceFiction" },
-                    { 3, "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.", "Horror" }
+                    { 1, "The stories in comic books and graphic novels are presented to the reader through engaging, sequential narrative art (illustrations and typography) that's either presented in a specific design or the traditional panel layout you find in comics.", "https://m.media-amazon.com/images/I/61m7Jsvu1sL.jpg", "Comic" },
+                    { 2, "Though they're often thought of in the same vein as fantasy, what distinguishes science fiction stories is that they lean heavily on themes of technology and future science. You'll find apocalyptic and dystopian novels in the sci-fi genre as well.", "https://m.media-amazon.com/images/I/61m7Jsvu1sL.jpg", "ScienceFiction" },
+                    { 3, "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.", "https://m.media-amazon.com/images/I/61m7Jsvu1sL.jpg", "Horror" }
                 });
 
             migrationBuilder.InsertData(

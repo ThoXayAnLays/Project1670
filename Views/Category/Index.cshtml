@@ -1,4 +1,4 @@
-﻿    @model List<Category>
+﻿@model List<Category>
 @{
     Layout = "_Layout";
 }
@@ -25,12 +25,15 @@
 
 <a class="btn btn-outline-warning mb-3 mt-2" asp-controller="Category" asp-action="Add">Add New Category</a>
 
+<h3 class="text-info">Total Category: @Model.Count</h3>
+
 
 <table class="table table-bordered">
     <tr style="background-color:cornflowerblue ">
         <th class="text-center">Category Id</th>
         <th class="text-center">Category Name</th>
         <th class="text-center">Category Description</th>
+        <th class="text-center">Category Image</th>
         <th colspan="2" class="text-center">Action</th>
     </tr>
     @foreach (var cate in Model)
@@ -41,6 +44,11 @@
                 <a asp-controller="Category" asp-action="Detail" asp-route-id="@cate.Id">@cate.Name</a>
             </td>
             <td>@cate.Description</td>
+            <td>
+                <a asp-controller="Category" asp-action="Detail" asp-route-id="@cate.Id">
+                    <img src="@cate.Image" width="100" height="100" />
+                </a>
+            </td>
             <td>
                 <a asp-controller="Category" asp-action="Edit" class="btn btn-success" asp-route-id="@cate.Id">Edit</a>
             </td>

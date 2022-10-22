@@ -49,21 +49,21 @@ namespace Project1670.Migrations
                         new
                         {
                             Id = "A",
-                            ConcurrencyStamp = "d977ee60-8f13-4365-acac-e4860e4e9bdd",
+                            ConcurrencyStamp = "4f752c4b-3933-4689-812c-900f58ede0cb",
                             Name = "Admin",
                             NormalizedName = "Admin"
                         },
                         new
                         {
                             Id = "C",
-                            ConcurrencyStamp = "84fa6c57-b42a-4b01-8843-63f589bf2369",
+                            ConcurrencyStamp = "0565b90e-fb52-4b9d-85b9-7d08de4051ce",
                             Name = "Customer",
                             NormalizedName = "Customer"
                         },
                         new
                         {
                             Id = "B",
-                            ConcurrencyStamp = "01510bf8-0b10-46e0-986c-e589b77451ef",
+                            ConcurrencyStamp = "77d64f0d-0036-4613-a267-c490444eb932",
                             Name = "StoreOwner",
                             NormalizedName = "StoreOwner"
                         });
@@ -162,14 +162,14 @@ namespace Project1670.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "22fed0c6-558d-441a-9fdc-7f80325c6f2c",
+                            ConcurrencyStamp = "b0e91918-b5d2-4b00-8064-708510d0b62f",
                             Email = "admin@fpt.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "admin@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEO+vmYTF88yrU59Tb834PVGxLstz11aT4sCV6Kbb0Y5dVYNxhub5fCfdJD6Q7/rCEQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKOw5jo4lsqUHKyV6uSNz6TQipa1b2qZ/kf3wmOTqXSgqlBbqQZC2t4+7kpUuS+PfQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d35c1b68-c66a-400b-8c23-864b13bceddb",
+                            SecurityStamp = "a211b6ed-55db-4df2-8298-1e9d9843deb4",
                             TwoFactorEnabled = false,
                             UserName = "admin@fpt.com"
                         },
@@ -177,14 +177,14 @@ namespace Project1670.Migrations
                         {
                             Id = "3",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3ca3d006-7b30-4280-9bf8-cd9a4a6a6031",
+                            ConcurrencyStamp = "eb2549a1-43ec-46c4-86c1-136a12e39038",
                             Email = "customer@fpt.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "customer@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEK8OJmnCiGprcFsKSP/3P3glj1wDV4mPlSoC2XX3oj1S9BgD9XXnyXEAUT2h1ofyVg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELa06Pvjno74RI/ZGkxkEeoCwn6yFGNVD3WW/lXyzfXcDzXb3BN5pp8O+PPZd7NG+Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4a8e1108-1c3b-43bf-9da2-018d675b41b2",
+                            SecurityStamp = "58bf6eac-7296-42da-81ff-2bbfc9f42bd3",
                             TwoFactorEnabled = false,
                             UserName = "customer@fpt.com"
                         },
@@ -192,14 +192,14 @@ namespace Project1670.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "119ddf7c-28c6-46e1-af5a-87ad35784c82",
+                            ConcurrencyStamp = "2565f2a9-b95f-49b8-8428-c6b0f0b39e6d",
                             Email = "storeowner@fpt.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "storeowner@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBpbx1NCCU05zqrbr8MFIw9L+uch5qB36zPAMqCO3/rKMR7+ildvFQ0nvrka7x537Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJ9QPUU6QXAH/Wtwr+xVfELDHV8sZmLoA29TDG4KZO72hsW366Rr7KEuiY6RmYYO6Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "01e65587-3185-4497-8837-9a8ef19733cd",
+                            SecurityStamp = "738f3e62-0fa8-409c-b45e-5c20f078e286",
                             TwoFactorEnabled = false,
                             UserName = "storeowner@fpt.com"
                         });
@@ -417,6 +417,10 @@ namespace Project1670.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(30)
@@ -431,18 +435,21 @@ namespace Project1670.Migrations
                         {
                             Id = 1,
                             Description = "The stories in comic books and graphic novels are presented to the reader through engaging, sequential narrative art (illustrations and typography) that's either presented in a specific design or the traditional panel layout you find in comics.",
+                            Image = "https://m.media-amazon.com/images/I/61m7Jsvu1sL.jpg",
                             Name = "Comic"
                         },
                         new
                         {
                             Id = 2,
                             Description = "Though they're often thought of in the same vein as fantasy, what distinguishes science fiction stories is that they lean heavily on themes of technology and future science. You'll find apocalyptic and dystopian novels in the sci-fi genre as well.",
+                            Image = "https://m.media-amazon.com/images/I/61m7Jsvu1sL.jpg",
                             Name = "ScienceFiction"
                         },
                         new
                         {
                             Id = 3,
                             Description = "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
+                            Image = "https://m.media-amazon.com/images/I/61m7Jsvu1sL.jpg",
                             Name = "Horror"
                         });
                 });
