@@ -45,10 +45,19 @@ namespace Project1670.Controllers
         [Authorize(Roles = "Customer")]
         public IActionResult Order()
         {
+            //lấy ra dữ liệu từ bảng Category và lưu vào list
             var categories = context.Categories.ToList();
+
+            //dữ liệu đẩy vào ViewBag để gọi đến trong View
             ViewBag.Categories = categories;
+
+            //lấy ra dữ liệu từ bảng Book và lưu vào list
             var books = context.Books.ToList();
+
+            //dữ liệu đẩy vào ViewBag để gọi đến trong View
             ViewBag.Books = books;
+
+            //lấy ra dữ liệu từ bảng Order và lưu vào list
             var orders = context.Orders.ToList();
             return View(orders);
         }
@@ -71,12 +80,19 @@ namespace Project1670.Controllers
             }
             else
             {
+                //tìm ra object order có id được yêu cầu
                 var order = context.Orders.Find(id);
+
+                //xóa object order vừa tìm thấy
                 context.Orders.Remove(order);
                 var book = context.Books.Find(order.BookId);
                 book.Quantity += order.OrderQuantity;
                 context.Books.Update(book);
+
+                //lưu lại thay đổi trong db
                 context.SaveChanges();
+
+                //gửi thông báo về trang Index
                 TempData["Message"] = "Delete book successfully !";
                 return RedirectToAction("Order", order);
             }

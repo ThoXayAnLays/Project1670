@@ -23,8 +23,12 @@ namespace Project1670.Controllers
 
         public IActionResult Index()
         {
+            //lấy ra dữ liệu từ bảng Category và lưu vào list
             var categories = context.Categories.ToList();
+
+            //dữ liệu đẩy vào ViewBag để gọi đến trong View
             ViewBag.Categories = categories;
+
             return View();
         }
 

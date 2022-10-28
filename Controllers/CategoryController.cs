@@ -21,7 +21,9 @@ namespace Project1670.Controllers
         [Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
+            //lấy ra dữ liệu từ bảng Category và lưu vào list
             var categories = context.Categories.ToList();
+
             return View(categories);
         }
 
@@ -29,10 +31,15 @@ namespace Project1670.Controllers
         {
             if (id == null)
             {
+                //nếu id không tìm thấy thì trả về not found
                 return NotFound();
             }
+            //lấy ra dữ liệu từ bảng Category và lưu vào list
             var categories = context.Categories.ToList();
+
+            //dữ liệu đẩy vào ViewBag để gọi đến trong View
             ViewBag.Categories = categories;
+
             var category = context.Categories.Include(c => c.Books).FirstOrDefault(c => c.Id == id);
             return View(category);
         }
@@ -49,6 +56,8 @@ namespace Project1670.Controllers
         [HttpPost]
         public IActionResult Add(Category category)
         {
+            //nếu người dùng nhập đủ và đúng thông tin vào form
+            //thì dữ liệu sẽ được add vào database
             if (ModelState.IsValid)
             {
                 context.Categories.Add(category);
@@ -85,9 +94,16 @@ namespace Project1670.Controllers
         [Authorize(Roles = "Admin")]
         public IActionResult Remove(int id)
         {
+            //tìm ra object category có id được yêu cầu
             var category = context.Categories.Find(id);
+
+            //xóa object category vừa tìm thấy
             context.Categories.Remove(category);
+
+            //lưu lại thay đổi trong db
             context.SaveChanges();
+
+            //quay trở lại trang index sau khi thành công
             return RedirectToAction("Index");
         }
 
